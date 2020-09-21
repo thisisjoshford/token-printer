@@ -162,7 +162,7 @@ mod tests {
             account_locked_balance: 0,
             storage_usage: 100,
             attached_deposit: 0,
-            prepaid_gas: 10u64.pow(15),
+            prepaid_gas: 3u64.pow(14),
             random_seed: vec![0, 1, 2],
             is_view: false,
             output_data_receivers: vec![],

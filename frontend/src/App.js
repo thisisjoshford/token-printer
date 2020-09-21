@@ -2,8 +2,8 @@ import React from 'react';
 import BN from 'bn.js';
 import * as nearAPI from 'near-api-js';
 
-const FaucetPrivateKey = 'ed25519:4a5T9u2ek3xNwP74EWZ8n94RBpWzj8ofgEzeNkLv2XqypomDyRpU2ENGrf9qBkuDCy9b8dat7TGiK4h649yYAd2j';
-const FaucetName = 'token-printer';
+const FaucetPrivateKey = 'ed25519:WKKGWU2iLs9VUsJhxmhdwsJ6v5CkznD2Sxm9X4bkh4xf7iGbaLNbHuRBvbdnXphWzDBxLVHJdJw9gfGpBb5S1bC';
+const FaucetName = 'brrrr.token-printer.testnet';
 const MinAccountIdLen = 2;
 const MaxAccountIdLen = 64;
 const ValidAccountRe = /^(([a-z\d]+[-_])*[a-z\d]+\.)*([a-z\d]+[-_])*[a-z\d]+$/;
@@ -57,9 +57,9 @@ class App extends React.Component {
   async initNear() {
     const nearConfig = {
       networkId: 'default',
-      nodeUrl: 'https://rpc.nearprotocol.com',
+      nodeUrl: 'https://rpc.testnet.nearprotocol.com',
       contractName: FaucetName,
-      walletUrl: 'https://wallet.nearprotocol.com',
+      walletUrl: 'https://wallet.testnet.nearprotocol.com',
     };
     const keyStore = new nearAPI.keyStores.BrowserLocalStorageKeyStore();
     const near = await nearAPI.connect(Object.assign({ deps: { keyStore } }, nearConfig));
@@ -89,8 +89,7 @@ class App extends React.Component {
           }
         }).catch((e) => {
           if (this.state.accountId === value) {
-            this.setState({
-              accountLoading: false,
+            this.setState({ accountLoading: false,
               accountExists: false,
             })
           }
